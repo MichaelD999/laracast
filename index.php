@@ -1,11 +1,13 @@
 <?php
 
-$task = [
-'title' => 'Finish homework',
-'due' => 'today',
-'assigned_to' => 'jeffrey',
-'completed' => true
-];
+$animals =['dog', 'cat'];
+
+function dumper($one, $two, $three) {
+	var_dump($one, $two, $three);
+}
 
 
-require 'index.view.php';
+dumper('hello', 'big', 'world');
+
+
+//require 'index.view.php';
