@@ -1,21 +1,17 @@
 <?php
 
+require 'bootstrap.php';
+
+
 require 'Task.php';
 
-try{
-	$pdo = new PDO('mysql:host=127.0.0.1;dbname=mytodo','root', '');
-} catch (PDOException $e) {
-	die($e->getMessage());
+$pdo = Connection::make();
 
-}
+$query = new QueryBuilder($pdo);
 
-$statement = $pdo->prepare('select * from todos');
 
-$statement->execute();
+$tasks = $query->selectALL('todos');
 
-$tasks = $statement->fetchALL(PDO::FETCH_CLASS, 'Task');
-
-var_dump($tasks[0]->foobar());
-
+die(var_dump($tasks));
 
 require 'index.view.php';
